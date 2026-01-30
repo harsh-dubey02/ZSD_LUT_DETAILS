@@ -1,0 +1,23 @@
+managed implementation in class zbp_i_lut_details unique;
+strict ( 2 );
+
+define behavior for ZI_LUT_DETAILS //alias <alias_name>
+persistent table ztb_lut_details
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) uuid;
+  field ( readonly : update ) LutNo;
+  determination set_lutno on save { field LutNo; }
+
+  mapping for ztb_lut_details
+    {
+      uuid          = uuid;
+      LutNo         = lut_no;
+      LutDescripton = lut_descripton;
+    }
+}

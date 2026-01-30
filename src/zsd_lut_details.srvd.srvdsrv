@@ -1,0 +1,4 @@
+@EndUserText.label: 'service definition for lut details'
+define service ZSD_LUT_DETAILS {
+  expose ZC_LUT_DETAILS;
+}
